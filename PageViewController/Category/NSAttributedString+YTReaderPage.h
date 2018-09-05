@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <CoreText/CoreText.h>
 
 @interface NSAttributedString (YTReaderPage)
+
+- (NSArray *)pageRangeArrayWithConstrainedToSize:(CGSize)size;
 
 @end

@@ -10,4 +10,7 @@
 
 @interface YTReaderContentViewController : UIViewController
 
+@property (nonatomic, strong) NSMutableAttributedString *content;
+@property (nonatomic, strong) UIColor *bgColor;
+
 @end

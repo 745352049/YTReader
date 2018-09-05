@@ -1,5 +1,5 @@
 //
-//  YTReaderPager.h
+//  YTReaderPagerModel.h
 //  PageViewController
 //
 //  Created by 水晶岛 on 2018/9/1.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface YTReaderPager : NSObject
+@interface YTReaderPagerModel : NSObject
 
 // 本页属性文本
 @property (nonatomic, strong) NSAttributedString *attString;

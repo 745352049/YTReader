@@ -8,6 +8,22 @@
 
 #import "YTReaderChapterModel.h"
 
+@interface YTReaderChapterModel ()
+
+@property (nonatomic, strong) NSAttributedString *attString;
+@property (nonatomic, strong) NSArray *pageRangeArray;
+@property (nonatomic, assign) CGSize renderSize;
+
+@end
+
 @implementation YTReaderChapterModel
+
+- (void)parseChapterWithRenderSize:(CGSize)renderSize {
+    _renderSize = renderSize;
+    [self parseChapter];
+}
+- (void)parseChapter {
+    
+}
 
 @end
