@@ -20,8 +20,8 @@
 		3F442078213916E300A31D7E /* YTReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F442077213916E300A31D7E /* YTReaderViewController.m */; };
 		3F44207B21391AAD00A31D7E /* YTReaderContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F44207A21391AAD00A31D7E /* YTReaderContentViewController.m */; };
 		3F64A4B2213E5751000E3C85 /* YTTextContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64A4B1213E5751000E3C85 /* YTTextContainer.m */; };
-		3F64A4D2213E8B87000E3C85 /* 第一章.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F64A4D1213E8B87000E3C85 /* 第一章.txt */; };
 		3F7BC7B8213E4BD5003600FB /* NSAttributedString+YTReaderPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7BC7B7213E4BD5003600FB /* NSAttributedString+YTReaderPage.m */; };
+		3FAD816A213FCC9300A67569 /* 第一章.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3FAD8169213FCC9300A67569 /* 第一章.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,9 +49,9 @@
 		3F44207A21391AAD00A31D7E /* YTReaderContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTReaderContentViewController.m; sourceTree = "<group>"; };
 		3F64A4B0213E5751000E3C85 /* YTTextContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTTextContainer.h; sourceTree = "<group>"; };
 		3F64A4B1213E5751000E3C85 /* YTTextContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTTextContainer.m; sourceTree = "<group>"; };
-		3F64A4D1213E8B87000E3C85 /* 第一章.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "第一章.txt"; path = "../../第一章.txt"; sourceTree = "<group>"; };
 		3F7BC7B6213E4BD5003600FB /* NSAttributedString+YTReaderPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+YTReaderPage.h"; sourceTree = "<group>"; };
 		3F7BC7B7213E4BD5003600FB /* NSAttributedString+YTReaderPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+YTReaderPage.m"; sourceTree = "<group>"; };
+		3FAD8169213FCC9300A67569 /* 第一章.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "第一章.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 		3F44205F2139113800A31D7E /* PageViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3F64A4D1213E8B87000E3C85 /* 第一章.txt */,
+				3FAD8169213FCC9300A67569 /* 第一章.txt */,
 				3F7BC7B5213E492D003600FB /* Category */,
 				3F103293213A472C008CF49F /* Model */,
 				3F103292213A471A008CF49F /* YTAttributedLabel */,
@@ -197,9 +197,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F44206D2139113800A31D7E /* LaunchScreen.storyboard in Resources */,
+				3FAD816A213FCC9300A67569 /* 第一章.txt in Resources */,
 				3F44206A2139113800A31D7E /* Assets.xcassets in Resources */,
 				3F4420682139113800A31D7E /* Main.storyboard in Resources */,
-				3F64A4D2213E8B87000E3C85 /* 第一章.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
