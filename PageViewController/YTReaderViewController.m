@@ -10,12 +10,14 @@
 
 #import "YTReaderContentViewController.h"
 #import "NSAttributedString+YTReaderPage.h"
+#import "YTListView.h"
 
-@interface YTReaderViewController ()<UIPageViewControllerDelegate, UIPageViewControllerDataSource>
+@interface YTReaderViewController ()<UIPageViewControllerDelegate, UIPageViewControllerDataSource, YTListViewDelegate>
 
 @property (nonatomic, strong) UIPageViewController *pageViewController;
 @property (nonatomic, strong) YTReaderContentViewController *contentVC;
 @property (nonatomic, strong) NSMutableArray *pageContentArray;
+@property (nonatomic, weak) YTListView *listView;
 
 @end
 
@@ -40,28 +42,29 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 - (void)pageViewControllerWithTap:(UITapGestureRecognizer *)tap {
-    [self.pageContentArray removeAllObjects];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"第一章" ofType:@"txt"];
-    NSString *content = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:content];
-    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    [paragraphStyle setLineSpacing:8];
-    paragraphStyle.paragraphSpacing = 5.0;
-    paragraphStyle.paragraphSpacingBefore = 1.0;
-    paragraphStyle.headIndent = 0.0;
-    
-    [attString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [content length])];
-    [attString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, [content length])];
-    NSArray *arr = [attString pageRangeArrayWithConstrainedToSize:CGSizeMake([UIScreen mainScreen].bounds.size.width-20, [UIScreen mainScreen].bounds.size.height-[[UIApplication sharedApplication] statusBarFrame].size.height*4)];
-    NSLog(@"%@", arr);
-    
-    for (int i = 0; i < arr.count; i++) {
-        NSRange range = [arr[i] rangeValue];
-        [self.pageContentArray addObject:[attString attributedSubstringFromRange:range]];
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 20; i++) {
+        [array addObject: [NSString stringWithFormat:@"第%d章",i]];
     }
-    
-    [self.pageViewController setViewControllers:@[[self viewControllerAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-    //self.view.backgroundColor = [UIColor whiteColor];
+    if (!_listView) {
+        YTListView *listView = [[YTListView alloc] initWithFrame:CGRectMake(-([UIScreen mainScreen].bounds.size.width-60), 0, [UIScreen mainScreen].bounds.size.width-60, [UIScreen mainScreen].bounds.size.height)];
+        listView.tableArray = array;
+        listView.delegate = self;
+        _listView = listView;
+        [self.view addSubview:listView];
+        [UIView animateWithDuration:0.3 animations:^{
+            _listView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width-60, [UIScreen mainScreen].bounds.size.height);
+        }];
+    } else {
+        [UIView animateWithDuration:0.3 animations:^{
+            _listView.frame = CGRectMake(-([UIScreen mainScreen].bounds.size.width-60), 0, [UIScreen mainScreen].bounds.size.width-60, [UIScreen mainScreen].bounds.size.height);
+        } completion:^(BOOL finished) {
+            [_listView removeFromSuperview];
+        }];
+    }
+}
+- (void)ytListView:(YTListView *)listView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%ld", (long)indexPath.row);
 }
 - (UIPageViewController *)pageViewController {
     if (!_pageViewController) {
