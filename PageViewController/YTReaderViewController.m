@@ -42,11 +42,11 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 - (void)pageViewControllerWithTap:(UITapGestureRecognizer *)tap {
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 20; i++) {
-        [array addObject: [NSString stringWithFormat:@"第%d章",i]];
-    }
     if (!_listView) {
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        for (int i = 0; i < 20; i++) {
+            [array addObject: [NSString stringWithFormat:@"第%d章",i]];
+        }
         YTListView *listView = [[YTListView alloc] initWithFrame:CGRectMake(-([UIScreen mainScreen].bounds.size.width-60), 0, [UIScreen mainScreen].bounds.size.width-60, [UIScreen mainScreen].bounds.size.height)];
         listView.tableArray = array;
         listView.delegate = self;
